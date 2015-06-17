@@ -9,6 +9,7 @@ import BD.Conexoes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import sistemadeatendimentoodonto.Cadastro;
 
 /**
  *responsáveis pelo CRUD (Create, Retrieve, Update, Delete – ou 
