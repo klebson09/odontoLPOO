@@ -22,6 +22,8 @@ public class Cadastro {
     public String cidade;
     public String estado;
     public String cep;
+    public String TelefoneResid;
+    public String bairro;
 
     /**
      * @return the nome
@@ -40,15 +42,15 @@ public class Cadastro {
     /**
      * @return the rh
      */
-    public String getRh() {
+    public String getRg() {
         return rg;
     }
 
     /**
-     * @param rh the rh to set
+     * @param rg the rh to set
      */
-    public void setRh(String rh) {
-        this.rg = rh;
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
     /**
@@ -176,5 +178,33 @@ public class Cadastro {
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+    
+    public String getTelefoneResid() {
+        return TelefoneResid;
+    }
+
+    /**
+     * @param TelefoneResid the dataNascimento to set
+     */
+    public void setTelefoneResid(String TelefoneResid) {
+        this.TelefoneResid = TelefoneResid;
+        
+    }
+    
+    public String getBairro() {
+        return bairro;
+    }
+
+    /**
+     * @param bairro the dataNascimento to set
+     */
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+        
+    }
+    
+    
+    
+    
     
 }

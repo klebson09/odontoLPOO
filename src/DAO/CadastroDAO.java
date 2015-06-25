@@ -17,7 +17,7 @@ import sistemadeatendimentoodonto.Cadastro;
  * @author klebsonsantana
  */
 public class CadastroDAO {
-     Connection connection;
+     Connection connection; // metodo Connection
      String nome;
      String rg;
      String cpf;
