@@ -9,6 +9,6 @@ package sistemadeatendimentoodonto;
  *
  * @author klebsonsantana
  */
-public class CadastroPaciente extends Cadastro {
+public class CadastroPaciente extends Pessoa {
     
 }

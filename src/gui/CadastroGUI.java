@@ -5,9 +5,9 @@
  */
 package gui;
 
-import DAO.CadastroDAO;
+import DAO.PessoaDAO;
 import javax.swing.JOptionPane;
-import sistemadeatendimentoodonto.Cadastro;
+import sistemadeatendimentoodonto.Pessoa;
 
 /**
  *
@@ -309,16 +309,16 @@ public class CadastroGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
   // AÇÃO DO BOTÃO CADASTRAR
-        
+
         // instanciando a classe Usuario do pacote modelo e criando seu objeto usuarios
-        Cadastro cadastros = new Cadastro();
+        Pessoa cadastros = new Pessoa();
         cadastros.setNome(campoNome.getText());
         cadastros.setRg(campoRg.getText());
         cadastros.setCpf(campoCpf.getText());
         cadastros.setEmail(campoEmail.getText());
         cadastros.setTelefone(campoTelefone.getText());
         cadastros.setDataNascimento(campoDataNascimento.getText());
-        
+
         cadastros.setEndereco(campoLogradouro.getText());
         cadastros.setNumero(campoNumero.getText());
         cadastros.setBairro(campoBairro.getText());
@@ -326,49 +326,43 @@ public class CadastroGUI extends javax.swing.JFrame {
         cadastros.setEstado(campoEstado.getText());
         cadastros.setCep(campoCep.getText());
         cadastros.setTelefoneResid(campoTelefoneResid.getText());
-        
+
         // fazendo a validação dos dados
         if ((campoNome.getText().isEmpty()) || (campoRg.getText().isEmpty()) || (campoCpf.getText().isEmpty())
-           || (campoEmail.getText().isEmpty()) || (campoTelefone.getText().isEmpty()) || (campoDataNascimento.getText().isEmpty())
-           || (campoLogradouro.getText().isEmpty()) || (campoNumero.getText().isEmpty()) || (campoBairro.getText().isEmpty())
-           || (campoCidade.getText().isEmpty()) || (campoEstado.getText().isEmpty()) || (campoCep.getText().isEmpty())
-           || (campoTelefoneResid.getText().isEmpty())   ) {
-           JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
-        }else {
+                || (campoEmail.getText().isEmpty()) || (campoTelefone.getText().isEmpty()) || (campoDataNascimento.getText().isEmpty())
+                || (campoLogradouro.getText().isEmpty()) || (campoNumero.getText().isEmpty()) || (campoBairro.getText().isEmpty())
+                || (campoCidade.getText().isEmpty()) || (campoEstado.getText().isEmpty()) || (campoCep.getText().isEmpty())
+                || (campoTelefoneResid.getText().isEmpty())) {
+            JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+        } else {
 
             // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
-            CadastroDAO dao = new CadastroDAO();
-            dao.adiciona(cadastros);
-            JOptionPane.showMessageDialog(null, "Paciente "+campoNome.getText()+" inserido com sucesso! ");
+            PessoaDAO dao = new PessoaDAO();
+            dao.adicionar(cadastros);
+            JOptionPane.showMessageDialog(null, "Paciente " + campoNome.getText() + " inserido com sucesso! ");
+
+            // apaga os dados preenchidos nos campos de texto
+            campoNome.setText("");
+            campoRg.setText("");
+            campoCpf.setText("");
+            campoDataNascimento.setText("");
+            campoEmail.setText("");
+            campoTelefone.setText("");
+
+            campoLogradouro.setText("");
+            campoNumero.setText("");
+            campoBairro.setText("");
+            campoCidade.setText("");
+            campoEstado.setText("");
+            campoCep.setText("");
+            campoTelefoneResid.setText("");
         }
-        
-        
-        // apaga os dados preenchidos nos campos de texto
-        
-        campoNome.setText("");
-        campoRg.setText("");
-        campoCpf.setText("");
-        campoDataNascimento.setText("");
-        campoEmail.setText("");
-        campoTelefone.setText("");
-        
-        campoLogradouro.setText("");
-        campoNumero.setText("");
-        campoBairro.setText("");
-        campoCidade.setText("");
-        campoEstado.setText("");
-        campoCep.setText("");
-        campoTelefoneResid.setText("");
-        
-        
-        
-        
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -380,7 +374,7 @@ public class CadastroGUI extends javax.swing.JFrame {
         campoDataNascimento.setText("");
         campoEmail.setText("");
         campoTelefone.setText("");
-        
+
         campoLogradouro.setText("");
         campoNumero.setText("");
         campoBairro.setText("");
@@ -388,8 +382,8 @@ public class CadastroGUI extends javax.swing.JFrame {
         campoEstado.setText("");
         campoCep.setText("");
         campoTelefoneResid.setText("");
-        
-        
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

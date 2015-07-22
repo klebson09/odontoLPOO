@@ -9,7 +9,7 @@ package sistemadeatendimentoodonto;
  *
  * @author klebsonsantana
  */
-public class CadastroFuncionario extends Cadastro {
+public class CadastroFuncionario extends Pessoa {
     private String login;
     private String senha;
 
