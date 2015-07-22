@@ -6,7 +6,14 @@
 package gui;
 
 import DAO.PessoaDAO;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import sistemadeatendimentoodonto.Endereco;
 import sistemadeatendimentoodonto.Pessoa;
 
 /**
@@ -308,24 +315,12 @@ public class CadastroGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_campoNomeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  // AÇÃO DO BOTÃO CADASTRAR
-
+        // AÇÃO DO BOTÃO CADASTRAR
+        // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
+        PessoaDAO dao;
         // instanciando a classe Usuario do pacote modelo e criando seu objeto usuarios
-        Pessoa cadastros = new Pessoa();
-        cadastros.setNome(campoNome.getText());
-        cadastros.setRg(campoRg.getText());
-        cadastros.setCpf(campoCpf.getText());
-        cadastros.setEmail(campoEmail.getText());
-        cadastros.setTelefone(campoTelefone.getText());
-        cadastros.setDataNascimento(campoDataNascimento.getText());
-
-        cadastros.setEndereco(campoLogradouro.getText());
-        cadastros.setNumero(campoNumero.getText());
-        cadastros.setBairro(campoBairro.getText());
-        cadastros.setCidade(campoCidade.getText());
-        cadastros.setEstado(campoEstado.getText());
-        cadastros.setCep(campoCep.getText());
-        cadastros.setTelefoneResid(campoTelefoneResid.getText());
+        Pessoa pessoa;
+        Endereco endereco;
 
         // fazendo a validação dos dados
         if ((campoNome.getText().isEmpty()) || (campoRg.getText().isEmpty()) || (campoCpf.getText().isEmpty())
@@ -333,29 +328,49 @@ public class CadastroGUI extends javax.swing.JFrame {
                 || (campoLogradouro.getText().isEmpty()) || (campoNumero.getText().isEmpty()) || (campoBairro.getText().isEmpty())
                 || (campoCidade.getText().isEmpty()) || (campoEstado.getText().isEmpty()) || (campoCep.getText().isEmpty())
                 || (campoTelefoneResid.getText().isEmpty())) {
-            JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+            JOptionPane.showMessageDialog(null, "Os campos são obrigatórios");
         } else {
+            dao = new PessoaDAO();
+            pessoa = new Pessoa();
+            endereco = new Endereco();
 
-            // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
-            PessoaDAO dao = new PessoaDAO();
-            dao.adicionar(cadastros);
-            JOptionPane.showMessageDialog(null, "Paciente " + campoNome.getText() + " inserido com sucesso! ");
+            pessoa.setNome(campoNome.getText());
+            pessoa.setRg(campoRg.getText());
+            pessoa.setCpf(campoCpf.getText());
+            pessoa.setEmail(campoEmail.getText());
+            pessoa.setTelefone(campoTelefone.getText());
 
-            // apaga os dados preenchidos nos campos de texto
-            campoNome.setText("");
-            campoRg.setText("");
-            campoCpf.setText("");
-            campoDataNascimento.setText("");
-            campoEmail.setText("");
-            campoTelefone.setText("");
+            Date nascimento;
+            DateFormat formatter;
+            try {
+                formatter = new SimpleDateFormat("dd/MM/yyyy");
+                nascimento = (Date) formatter.parse(campoDataNascimento.getText());
+                pessoa.setDataNascimento(nascimento);
+            } catch (ParseException ex) {
+                JOptionPane.showMessageDialog(null, "Data de nascimento incorreta siga formato: dd/MM/yyyy");
+                Logger.getLogger(CadastroGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-            campoLogradouro.setText("");
-            campoNumero.setText("");
-            campoBairro.setText("");
-            campoCidade.setText("");
-            campoEstado.setText("");
-            campoCep.setText("");
-            campoTelefoneResid.setText("");
+            endereco.setEndereco(campoLogradouro.getText());
+            endereco.setNumero(Integer.valueOf(campoNumero.getText()));
+            endereco.setBairro(campoBairro.getText());
+            endereco.setCidade(campoCidade.getText());
+            endereco.setEstado(campoEstado.getText());
+            endereco.setCep(campoCep.getText());
+            endereco.setTelefoneResid(campoTelefoneResid.getText());
+
+            pessoa.setEndereco(endereco);
+
+            boolean sucesso = dao.adicionar(pessoa);
+            String msg = "";
+            if (sucesso) {
+                msg = "Paciente " + campoNome.getText() + " inserido com sucesso!";
+                limparCampos();
+            } else {
+                msg = "Não foi possivel cadastrar!";
+            }
+
+            JOptionPane.showMessageDialog(null, msg);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -365,6 +380,23 @@ public class CadastroGUI extends javax.swing.JFrame {
 
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void limparCampos() {
+        // apaga os dados preenchidos nos campos de texto
+        campoNome.setText("");
+        campoRg.setText("");
+        campoCpf.setText("");
+        campoDataNascimento.setText("");
+        campoEmail.setText("");
+        campoTelefone.setText("");
+        campoLogradouro.setText("");
+        campoNumero.setText("");
+        campoBairro.setText("");
+        campoCidade.setText("");
+        campoEstado.setText("");
+        campoCep.setText("");
+        campoTelefoneResid.setText("");
+    }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // AÇÃO DO BOTÃO LIMPAR

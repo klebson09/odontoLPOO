@@ -1,8 +1,7 @@
 package DAO;
 
-import BD.Conexoes;
+import BD.Conexao;
 import java.sql.Connection;
-import java.util.ArrayList;
 
 /**
  *
@@ -16,10 +15,10 @@ public abstract class DaoAbstrato<T> {
     
     public DaoAbstrato() {
         //a variavel conection referencia ha um novo objeto Conexoes
-        this.connection = new Conexoes().getConnection();
+        this.connection = new Conexao().getConnection();
     }
 
-    public abstract void adicionar(T tipoClasse);
+    public abstract boolean adicionar(T tipoClasse);
 
     public abstract void editar(T tipoClasse);
 
