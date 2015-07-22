@@ -19,8 +19,8 @@ import java.sql.SQLException;
 public class Conexoes {
     public Connection getConnection() {
         try {
-            //return DriverManager.getConnection("jdbc:mysql://192.168.0.49/biblioteca","usuario49","B@s3@t3st15");
-            return DriverManager.getConnection("jdbc:mysql://localhost/bd_sistema_atendimento_odonto","root","admin123");
+//            return DriverManager.getConnection("jdbc:mysql://192.168.0.49/biblioteca","usuario49","B@s3@t3st15");
+            return DriverManager.getConnection("jdbc:mysql://192.168.124.56/bd_sistema_atendimento_odonto","loro","1234");
         }
         catch(SQLException excecao) {
             throw new RuntimeException(excecao);
