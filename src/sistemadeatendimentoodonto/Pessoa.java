@@ -5,25 +5,23 @@
  */
 package sistemadeatendimentoodonto;
 
+import java.util.Date;
+
 /**
  *Informações gerais de cadastro que podem ser atribuído em outras classes filhas 
  * como cadastroFuncionario e CadastroPaciente
  * @author klebsonsantana
  */
 public class Pessoa {
-    public String nome;
-    public String rg;
-    public String cpf;
-    public String dataNascimento;
-    public String email;
-    public String telefone;
-    public String endereco;
-    public String numero;
-    public String cidade;
-    public String estado;
-    public String cep;
-    public String TelefoneResid;
-    public String bairro;
+    private String nome;
+    private String rg;
+    private String cpf;    
+    private String email;
+    private String telefone;
+    
+    private Date dataNascimento;
+    
+    private Endereco endereco;
 
     /**
      * @return the nome
@@ -96,115 +94,24 @@ public class Pessoa {
     }
 
     /**
-     * @return the endereco
-     */
-    public String getEndereco() {
-        return endereco;
-    }
-
-    /**
-     * @param endereco the endereco to set
-     */
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    /**
-     * @return the numero
-     */
-    public String getNumero() {
-        return numero;
-    }
-
-    /**
-     * @param numero the numero to set
-     */
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    /**
-     * @return the cidade
-     */
-    public String getCidade() {
-        return cidade;
-    }
-
-    /**
-     * @param cidade the cidade to set
-     */
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    /**
-     * @return the estado
-     */
-    public String getEstado() {
-        return estado;
-    }
-
-    /**
-     * @param estado the estado to set
-     */
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    /**
-     * @return the cep
-     */
-    public String getCep() {
-        return cep;
-    }
-
-    /**
-     * @param cep the cep to set
-     */
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    /**
      * @return the dataNascimento
      */
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
     /**
      * @param dataNascimento the dataNascimento to set
      */
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-    
-    public String getTelefoneResid() {
-        return TelefoneResid;
+
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    /**
-     * @param TelefoneResid the dataNascimento to set
-     */
-    public void setTelefoneResid(String TelefoneResid) {
-        this.TelefoneResid = TelefoneResid;
-        
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
-    
-    public String getBairro() {
-        return bairro;
-    }
-
-    /**
-     * @param bairro the dataNascimento to set
-     */
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-        
-    }
-    
-    
-    
-    
-    
 }

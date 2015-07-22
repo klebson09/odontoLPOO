@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * usuario: root
  * senha: admin123
  */
-public class Conexoes {
+public class Conexao {
     public Connection getConnection() {
         try {
 //            return DriverManager.getConnection("jdbc:mysql://192.168.0.49/biblioteca","usuario49","B@s3@t3st15");
