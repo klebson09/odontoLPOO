@@ -3,6 +3,8 @@ package sistemadeatendimentoodonto;
 /**
  *
  * @author klebsonsantana
+ * TIPOS GENERICOS -> classe FilaAtendimento.java
+ * 
  */
 public class SistemaDeAtendimentoOdonto {
 

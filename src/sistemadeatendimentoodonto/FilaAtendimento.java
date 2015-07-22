@@ -6,30 +6,37 @@
 package sistemadeatendimentoodonto;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
  * @author klebsonsantana
+ * 
+ * essa implementação permite guardar qualquer tipo de objeto
+ * TIPOS GENERICOS
  */
 public class FilaAtendimento {
-    
-    
-    
+
     //
-    ArrayList<String> pacientes = new ArrayList();
-    
-    //contabilizar e atribuir ao respectivo paciente
-    public void ordenaArray(){
-        
-        
+    private List<Object> objetos = new LinkedList<Object>();
+
+    public void insere(Object objetos) {
+        // implementação
+        this.objetos.add(objetos);
     }
-    
-    
-    
-    
-    
-    //criar um metodo fila (disciplina de algoritmo)
-    public void fila(){
-    
+
+    public Object remove() {
+        // implementação
+        return this.objetos.remove(0);
     }
+
+    public boolean vazia() {
+        // implementação
+        return this.objetos.size() == 0;
+    }
+
+   
+
+    
 }
