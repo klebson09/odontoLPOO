@@ -14,10 +14,10 @@ public class FilaAtendimentoTeste {
     public static void main(String[] args) {
         FilaAtendimento fila = new FilaAtendimento();
 
-        Object objetos = new Cadastro();
-        fila.insere(objetos);
+        Pessoa pessoas = new Pessoa();
+        fila.insere(pessoas);
 
-        Object objetosRemovido = fila.remove();
+        Pessoa pessoasRemovido = fila.remove();
 
         if (fila.vazia()) {
             System.out.println("A fila está vazia");

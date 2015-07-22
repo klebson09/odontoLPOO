@@ -6,7 +6,6 @@
 package sistemadeatendimentoodonto;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -19,21 +18,21 @@ import java.util.List;
 public class FilaAtendimento {
 
     //
-    private List<Object> objetos = new LinkedList<Object>();
+    private List<Pessoa> pessoas = new ArrayList<>();
 
-    public void insere(Object objetos) {
+    public void insere(Pessoa pessoa) {
         // implementação
-        this.objetos.add(objetos);
+        this.pessoas.add(pessoas.size(),pessoa);
     }
 
-    public Object remove() {
+    public Pessoa remove() {
         // implementação
-        return this.objetos.remove(0);
+        return this.pessoas.remove(0);
     }
 
     public boolean vazia() {
         // implementação
-        return this.objetos.size() == 0;
+        return this.pessoas.size() == 0;
     }
 
    
